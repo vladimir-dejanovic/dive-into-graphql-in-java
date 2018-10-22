@@ -3,6 +3,7 @@ package xyz.itshark.conf.tutorial.diveintographqlinjava.resolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Attendee;
+import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Human;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Speaker;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Talk;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.AttendeeService;
@@ -32,6 +33,14 @@ public class Query implements GraphQLQueryResolver {
 
 
     public List<Object> allPeople() {
+        List<Attendee> attendees = attendeeService.findAll();
+        List people = speakerService.findAll();
+
+        people.addAll(attendees);
+        return people;
+    }
+
+    public List<Human> allHumans() {
         List<Attendee> attendees = attendeeService.findAll();
         List people = speakerService.findAll();
 

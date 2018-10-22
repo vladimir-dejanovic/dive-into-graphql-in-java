@@ -1,12 +1,16 @@
-type Speaker {
+interface Human {
+ name : String!
+}
+
+type Speaker implements Human {
     id: ID!
     name: String!
     twitter: String
 }
 
-type Attendee {
+type Attendee implements Human {
  id: ID!
- name: String
+ name: String!
 }
 
 type Talk {
@@ -28,5 +32,6 @@ type Query {
   allAttendees: [Attendee]
   allSpeakers: [Speaker]
   allPeople: [Person]
+  allHumans: [Human]
 }
 

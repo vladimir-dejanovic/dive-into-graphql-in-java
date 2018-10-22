@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Speaker {
+public class Speaker implements Human{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
