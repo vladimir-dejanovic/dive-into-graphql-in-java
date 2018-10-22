@@ -13,6 +13,7 @@ type Talk {
   id: ID!
   title: String!
   description: String
+  speakers: [Speaker]
 }
 
 schema {
@@ -21,5 +22,7 @@ schema {
 
 type Query {
   allTalks: [Talk]
+  allAttendees: [Attendee]
+  allSpeakers: [Speaker]
 }
 
