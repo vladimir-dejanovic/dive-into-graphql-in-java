@@ -3,6 +3,7 @@ package xyz.itshark.conf.tutorial.diveintographqlinjava;
 import com.coxautodev.graphql.tools.SchemaParser;
 import graphql.schema.GraphQLSchema;
 import graphql.servlet.SimpleGraphQLServlet;
+import xyz.itshark.conf.tutorial.diveintographqlinjava.resolver.Query;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.AttendeeService;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.SpeakerService;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.TalkService;
@@ -18,7 +19,7 @@ public class GraphQLEntryPoint extends SimpleGraphQLServlet {
                 .newParser()
                 .file("schema.graphqls")
 //                .dictionary()
-//                .resolvers()
+                .resolvers( new Query(attendeeService,speakerService,talkService))
                 .build()
                 .makeExecutableSchema();
     }

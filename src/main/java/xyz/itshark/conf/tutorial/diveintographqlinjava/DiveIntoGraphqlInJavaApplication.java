@@ -26,13 +26,11 @@ public class DiveIntoGraphqlInJavaApplication {
 		SpringApplication.run(DiveIntoGraphqlInJavaApplication.class, args);
 	}
 
+	@Bean
+	public ServletRegistrationBean graphQLServlet() {
+		GraphQLEntryPoint graphQLEntryPoint = new GraphQLEntryPoint(speakerService,attendeeService,talkService);
 
-
-//	@Bean
-//	public ServletRegistrationBean graphQLServlet() {
-//		GraphQLEntryPoint graphQLEntryPoint = new GraphQLEntryPoint(speakerService,attendeeService,talkService);
-//
-//		return new ServletRegistrationBean(graphQLEntryPoint,"/graphql");
-//	}
+		return new ServletRegistrationBean(graphQLEntryPoint,"/graphql");
+	}
 
 }
