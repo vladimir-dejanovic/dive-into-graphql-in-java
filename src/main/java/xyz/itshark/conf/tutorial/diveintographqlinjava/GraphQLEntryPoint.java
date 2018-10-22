@@ -23,7 +23,7 @@ public class GraphQLEntryPoint extends SimpleGraphQLServlet {
 //                .dictionary()
                 .resolvers( new Query(attendeeService,speakerService,talkService),
                         new TalkReslover(speakerService),
-                new Mutation(attendeeService))
+                new Mutation(speakerService))
                 .build()
                 .makeExecutableSchema();
     }

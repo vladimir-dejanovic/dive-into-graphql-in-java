@@ -37,7 +37,7 @@ type Query {
 }
 
 type Mutation {
-   addAttendee(name: String): Attendee
+   addSpeaker(name: String): Speaker
 }
 
 

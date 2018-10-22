@@ -2,6 +2,7 @@ package xyz.itshark.conf.tutorial.diveintographqlinjava.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Attendee;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Speaker;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.SpeakerTalk;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Talk;
@@ -33,5 +34,9 @@ public class SpeakerService {
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toList());
+    }
+
+    public Speaker save(Speaker speaker) {
+        return speakerRepository.save(speaker);
     }
 }
