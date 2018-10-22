@@ -5,6 +5,7 @@ import graphql.schema.GraphQLSchema;
 import graphql.servlet.SimpleGraphQLServlet;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.resolver.Mutation;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.resolver.Query;
+import xyz.itshark.conf.tutorial.diveintographqlinjava.resolver.SpeakerReslover;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.resolver.TalkReslover;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.AttendeeService;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.SpeakerService;
@@ -23,6 +24,7 @@ public class GraphQLEntryPoint extends SimpleGraphQLServlet {
 //                .dictionary()
                 .resolvers( new Query(attendeeService,speakerService,talkService),
                         new TalkReslover(speakerService),
+                new SpeakerReslover(talkService),
                 new Mutation(speakerService))
                 .build()
                 .makeExecutableSchema();

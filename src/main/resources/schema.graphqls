@@ -6,6 +6,7 @@ type Speaker implements Human {
     id: ID!
     name: String!
     twitter: String
+    talks: [Talk]
 }
 
 type Attendee implements Human {
