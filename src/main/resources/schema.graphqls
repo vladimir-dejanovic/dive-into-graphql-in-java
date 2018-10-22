@@ -36,8 +36,13 @@ type Query {
   allHumans: [Human]
 }
 
+input SpeakerInput {
+name: String
+twitter: String
+}
+
 type Mutation {
-   addSpeaker(name: String): Speaker
+   addSpeaker(speaker: SpeakerInput): Speaker
 }
 
 
