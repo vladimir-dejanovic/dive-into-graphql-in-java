@@ -34,4 +34,8 @@ public class AttendeeService {
                 .map(Optional::get)
                 .collect(Collectors.toList());
     }
+
+    public Attendee save(Attendee attendee) {
+        return attendeeRepository.save(attendee);
+    }
 }

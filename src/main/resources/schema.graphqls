@@ -22,6 +22,7 @@ type Talk {
 
 schema {
   query: Query
+  mutation: Mutation
 }
 
 
@@ -34,4 +35,20 @@ type Query {
   allPeople: [Person]
   allHumans: [Human]
 }
+
+type Mutation {
+   addAttendee(name: String): Attendee
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
