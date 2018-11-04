@@ -13,3 +13,23 @@ http://localhost:8080/h2-console/
 
 Make sure that URL is set to jdbc:h2:mem:testdb
 
+## Code examples throught Java Code
+
+
+### init-0.1
+
+### data-0.1
+
+### data-0.2
+
+### data-0.3
+
+### data-0.4
+
+
+### mutation-0.1
+
+
+### mutation-0.2
+
+### link-0.1
