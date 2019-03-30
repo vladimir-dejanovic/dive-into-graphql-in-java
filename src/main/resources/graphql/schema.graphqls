@@ -21,9 +21,20 @@ type Talk {
   speakers: [Speaker]
 }
 
+type Score {
+  title: String!
+  score: Int
+}
+
+type Subscription {
+  talkScores(title: String!): Score
+}
+
+
 schema {
   query: Query
   mutation: Mutation
+  subscription: Subscription
 }
 
 
