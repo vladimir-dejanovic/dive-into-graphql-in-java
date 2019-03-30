@@ -35,8 +35,6 @@ public class DiveIntoGraphqlInJavaApplication {
 
 	@Bean
 	public ServletRegistrationBean graphQLServlet() {
-//		GraphQLEntryPoint graphQLEntryPoint = new GraphQLEntryPoint(speakerService,attendeeService,talkService);
-
 		return new ServletRegistrationBean(SimpleGraphQLHttpServlet.newBuilder(buildSchema(speakerService,attendeeService,talkService)).build(),"/graphql");
 	}
 
