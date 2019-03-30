@@ -1,19 +1,19 @@
 package xyz.itshark.conf.tutorial.diveintographqlinjava.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
-import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Speaker;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Talk;
-import xyz.itshark.conf.tutorial.diveintographqlinjava.repository.SpeakerTalkRepository;
-import xyz.itshark.conf.tutorial.diveintographqlinjava.repository.TalkRepository;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.TalkService;
 
+import javax.annotation.Resource;
 import java.util.List;
 
-@RequiredArgsConstructor
+@Component
 public class SpeakerReslover implements GraphQLResolver<Speaker> {
 
-    private final TalkService talkService;
+    @Resource
+    private TalkService talkService;
 
     public List<Talk> talks(Speaker speaker) {
         return talkService.findAllTalksBySpeaker(speaker);

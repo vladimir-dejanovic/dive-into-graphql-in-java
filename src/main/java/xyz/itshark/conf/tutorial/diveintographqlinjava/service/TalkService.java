@@ -7,6 +7,7 @@ import xyz.itshark.conf.tutorial.diveintographqlinjava.repository.AttendeeTalkRe
 import xyz.itshark.conf.tutorial.diveintographqlinjava.repository.SpeakerTalkRepository;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.repository.TalkRepository;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -14,13 +15,13 @@ import java.util.stream.Collectors;
 @Service
 public class TalkService {
 
-    @Autowired
+    @Resource
     private TalkRepository talkRepository;
 
-    @Autowired
+    @Resource
     private SpeakerTalkRepository speakerTalkRepository;
 
-    @Autowired
+    @Resource
     private AttendeeTalkRepository attendeeTalkRepository;
 
     public List<Talk> findAll() {

@@ -1,7 +1,7 @@
 package xyz.itshark.conf.tutorial.diveintographqlinjava.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Attendee;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Human;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.pojo.Speaker;
@@ -10,14 +10,18 @@ import xyz.itshark.conf.tutorial.diveintographqlinjava.service.AttendeeService;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.SpeakerService;
 import xyz.itshark.conf.tutorial.diveintographqlinjava.service.TalkService;
 
+import javax.annotation.Resource;
 import java.util.List;
 
-@RequiredArgsConstructor
+@Component
 public class Query implements GraphQLQueryResolver {
 
-    private final AttendeeService attendeeService;
-    private final SpeakerService speakerService;
-    private final TalkService talkService;
+    @Resource
+    private AttendeeService attendeeService;
+    @Resource
+    private SpeakerService speakerService;
+    @Resource
+    private TalkService talkService;
 
     public List<Talk> allTalks() {
         return talkService.findAll();
