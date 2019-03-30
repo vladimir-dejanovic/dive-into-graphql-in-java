@@ -46,7 +46,7 @@ public class DiveIntoGraphqlInJavaApplication {
 	private static GraphQLSchema buildSchema(SpeakerService speakerService, AttendeeService attendeeService, TalkService talkService) {
 		return SchemaParser
 				.newParser()
-				.file("schema.graphqls")
+				.file("graphql/schema.graphqls")
 //                .dictionary()
 				.resolvers( new Query(attendeeService,speakerService,talkService),
 						new TalkReslover(speakerService),
