@@ -38,8 +38,8 @@ type Query {
 }
 
 input SpeakerInput {
-name: String
-twitter: String
+  name: String
+  twitter: String
 }
 
 type Mutation {
