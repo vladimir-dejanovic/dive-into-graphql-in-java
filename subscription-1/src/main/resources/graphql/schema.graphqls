@@ -1,0 +1,71 @@
+interface Human {
+ name : String!
+}
+
+type Speaker implements Human {
+    id: ID!
+    name: String!
+    twitter: String
+    talks: [Talk]
+}
+
+type Attendee implements Human {
+ id: ID!
+ name: String!
+}
+
+type Talk {
+  id: ID!
+  title: String!
+  description: String
+  speakers: [Speaker]
+}
+
+type Score {
+  title: String!
+  score: Int
+}
+
+type Subscription {
+  talkScores(title: String!): Score
+}
+
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+
+union Person = Speaker | Attendee
+
+type Query {
+  allTalks: [Talk]
+  allAttendees: [Attendee]
+  allSpeakers: [Speaker]
+  allPeople: [Person]
+  allHumans: [Human]
+}
+
+input SpeakerInput {
+  name: String
+  twitter: String
+}
+
+type Mutation {
+   addSpeaker(speaker: SpeakerInput): Speaker
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
